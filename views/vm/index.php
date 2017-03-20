@@ -44,6 +44,7 @@ $this->title = 'Virtual Machines';
              'vm_hardware_version',
              'vm_is_template',
              'vm_tools_status',
+             'vm_tools_version',
              'vm_tools_version_status',
              'vm_name_check',
              'vm_provisionedspaceGB',

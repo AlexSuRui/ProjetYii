@@ -10,14 +10,13 @@ use app\models\vm;
 $this->title = 'Virtual Machines';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="vm-index">
+<div class="vm-index" >
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]);
             // get all the attributes of sales
             $model = new vm();
             $champs = $model->attributes();
-//            $visible=array();
             // use a loop to get the values of swithinput via customize.php
             $result = array();
             foreach ($champs as $champ){
@@ -26,26 +25,27 @@ $this->params['breadcrumbs'][] = $this->title;
             }            
             Yii::info($champs);
             Yii::info($result);
-            Yii::info($array);
-            print_r($array)?>
-            
-        <?= Html::a('Create Sales', ['create'], ['class' => 'btn btn-success']) ?>
+    ?>
+    <div style="margin-bottom: 2%">
+        <?= Html::a('Create Sales', ['create'], ['class' => 'btn btn-success',]) ?>
         <?= Html::a('Delete all sales',['truncate'],['class' => 'btn btn-danger', 
             'data'=>['confirm'=>'Are you sure you want to delete all the sales?','method'=>'post',]])?>
         <?= Html::a('Upload datas from a Excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
         <?= Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
-    
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'showHeader' => true,
-//        'showOnEmpty' => false,
-        'columns' => array_merge([['class' => 'yii\grid\SerialColumn']],$result),
-    ]); 
-    ?>
+    </div>
+        <?= GridView::widget([
+            'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
+//            'options'=>[
+//                'style' =>'padding-top:2%'
+//            ],
+            'showHeader' => true,
+            'showOnEmpty' => false,
+            'columns' => array_merge([['class' => 'yii\grid\SerialColumn']],$result),
+        ]); 
+        ?>
  
-  
 </div>
 <?php
 

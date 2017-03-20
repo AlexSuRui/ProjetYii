@@ -11,7 +11,7 @@ $this->title = 'Choose the columns as you want';
 ?>
     <h2><?= Html::encode($this->title) ?></h2>
     
-<div class="choice-form">
+    <div class="choice-form">
     
     <!--if use php manual, you need add this hidden input to make it work-->
     <!--<input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />-->
@@ -19,21 +19,67 @@ $this->title = 'Choose the columns as you want';
     $form = ActiveForm::begin([
         'action' => Url::to(['indexcustmized']),
         'method' => 'post',
-    ]); 
-    //Use a loop to save the status of each swichInput
-    foreach ($champs as $champ){
-        echo '<label class="control-label">'.$champ.'</label>';
-        // More options in the doc
-        echo SwitchInput::widget([
-        'name'=>$champ, 'value'=>true,
-        'pluginOptions' => [
-        'animate' => false
+        
+        'fieldConfig'=>[
+            'align-content:center'
         ]
     ]); 
-    }?>
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset',['class' =>'btn btn-default'])?>      
-    </div>
+   
+    echo '<div id="div1" class="col-md-4 ">';
+    //Use a loop to save the status of each swichInput
+    //Afficher les columsn en divisant par 3
+    for($i=0; $i< count($champs)/3; $i++){
+        echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
+        // More options in the doc
+        echo SwitchInput::widget([
+            'inlineLabel'=>false,
+            'name'=>$champs[$i], 
+            'value'=>true,
+            'pluginOptions' => [
+                'animate' => false,
+                'size'=>'mini'
+            ],
+        ]); 
+        Yii::info($champs[$i]);
+    }
+    echo '</div>';
+    echo '<div id="div2" class="col-md-4 ">';
+       for($i= count($champs)/3; $i<count($champs)/3*2; $i++){
+        echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
+        // More options in the doc
+        echo SwitchInput::widget([
+            'inlineLabel'=>false,
+            'name'=>$champs[$i], 
+            'value'=>true,
+            'pluginOptions' => [
+                'animate' => false,
+                'size'=>'mini'
+            ],
+        ]); 
+    }
+    echo '</div>';
+    echo '<div id="div3" class="col-md-4 ">';
+       for($i= count($champs)/3*2; $i<count($champs); $i++){
+        echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
+        // More options in the doc
+        echo SwitchInput::widget([
+            'inlineLabel'=>false,
+            'name'=>$champs[$i], 
+            'value'=>true,
+            'pluginOptions' => [
+                'animate' => false,
+                'size'=>'mini'
+            ],
+        ]); 
+    }
+    echo '</div>';
+//    past way to display the champs
+//    foreach ($champs as $champ){
+?>
+        <div class="form-group col-md-offset-5">
+            <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+            <?= Html::resetButton('Reset',['class' =>'btn btn-default'])?>      
+        </div>
+    
    <?php ActiveForm::end(); ?>
 

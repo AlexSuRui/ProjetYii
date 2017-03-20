@@ -5,10 +5,11 @@ namespace app\controllers;
 use Yii;
 use app\models\vm;
 use app\models\vmSearch;
+use app\models\UploadForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
 /**
  * VmController implements the CRUD actions for vm model.
  */
@@ -145,4 +146,81 @@ class VmController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    /**
+     * Save data from a inputfile(excel) to Database(MySQL)
+     * @param string $importFile
+     * @return return to the index page
+     */
+    protected function chargeFile($importFile)
+    {
+
+//       A emample file: $importFile = 'uploads/autofilter.xls';
+        try{
+            // $inputFileType = \PHPExcel_IOFactory::indentify($inputFile);
+            // $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
+            $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+            $objPHPExcel = $objReader->load($importFile);           
+            }
+        catch(Exception $e){
+                die('Error');
+             }
+
+        return $objPHPExcel;
+
+    }
+    /**
+     * Load data from sheet, return a sign (true of false) to ensure if the load successes
+     * @param type $objPHPExcel
+     * @param type $sheetName 
+     * @return boolean 
+     */
+    protected function loaddata($sheet){
+            
+            if($sheet){
+//                Yii::$app->db->createCommand()->truncateTable('{{table}}')->execute();
+                $highestRow = $sheet->getHighestRow();
+                $highestColomn = $sheet->getHighestColumn();
+                //需要使用一个循环来输入
+                 for ($row = 2; $row<=$highestRow; $row++){
+                        $rowData = $sheet->rangeToArray('D'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
+                        $sale = new Sales();
+                        $sale->id = $row-1;
+                        $sale->year = strval($rowData[0][0]);
+                        $sale->quarter = $rowData[0][1];
+                        $sale->country = $rowData[0][2];
+                        $sale->sales = strval($rowData[0][3]);
+
+                        if(!$sale->save()){
+                            print_r($sale->getErrors());
+                            return false;
+                        }
+                }
+                return true;
+            }else{
+                return false;
+            }
+    }
+    /**
+     * Upload a excel file
+     * @return null
+     */
+    public function actionUpload(){
+//        $model = new UploadForm();
+//        // 
+//        if (Yii::$app->request->isPost) {
+//        $model->file = UploadedFile::getInstance($model, 'file');
+//        $path = $model->upload();
+//        // method chargeFile at line 154
+//        $objPHPExcel = $this->chargeFile($path);
+//        $sheet = $objPHPExcel->getSheetByName('VM Data');
+//        //method loaddata at line 177
+//        //加一个标示
+//        if($this->loaddata($sheet)){
+//            return $this->render('upload', ['model' => $model]);
+//            }
+//        }
+        //test, add a line mock data to test CreateVM method
+        
+    }
+    
 }
