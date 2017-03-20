@@ -47,10 +47,11 @@ class vm extends \yii\db\ActiveRecord
         return [
             [['vm_name', 'vm_host_name', 'vm_state', 'vm_ip', 'vm_guest_full_name', 'vm_guest_id', 'vm_memory', 'vm_esx_host', 'vm_total_vcpu', 'vm_num_cpus', 'vm_num_cores_per_cpu', 'vm_hardware_version', 'vm_is_template', 'vm_tools_status', 'vm_tools_version_status', 'vm_name_check', 'vm_provisionedspaceGB', 'vm_usedspaceGB', 'vm_compliance_check', 'VMCountryCode'], 'required'],
             [['vm_memory', 'vm_total_vcpu', 'vm_num_cpus', 'vm_num_cores_per_cpu', 'vm_is_template','vm_tools_version', 'vm_provisionedspaceGB', 'vm_usedspaceGB'], 'integer'],
-            [['vm_name', 'vm_host_name', 'vm_state', 'vm_family', 'vm_guest_full_name', 'vm_guest_id', 'vm_hardware_version', 'vm_tools_status', 'vm_tools_version_status', 'vm_name_check', 'vm_compliance_check', 'VMCountryCode'], 'string', 'max' => 100],
-            [['vm_ip'], 'string', 'max' => 50],
+            [['vm_name', 'vm_host_name', 'vm_state', 'vm_family', 'vm_guest_full_name', 'vm_guest_id', 'vm_hardware_version', 'vm_tools_status', 'vm_tools_version_status', 'vm_name_check', 'vm_compliance_check', 'VMCountryCode','vcenter_server'], 'string', 'max' => 100],
+            [['vm_ip','region'], 'string', 'max' => 50],
+            [['inventoyr_date'], 'date'],
             [['vm_esx_host'], 'string', 'max' => 200],
-            [['vm_host_name'], 'unique'],
+            [['vm_name'], 'unique'],
         ];
     }
 
@@ -60,6 +61,9 @@ class vm extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'inventoyr_date'=> 'Inventory Date',
+            'region'=> 'Region',
+            'vcenter_server'=> 'Vcenter Server',
             'vm_name' => 'Vm Name',
             'vm_host_name' => 'Vm Host Name',
             'vm_state' => 'Vm State',

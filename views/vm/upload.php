@@ -5,8 +5,11 @@ $this->title = 'Upload a excel file';
 ?>
 <h2><?= Html::encode($this->title) ?></h2>
 
-<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
-
+<?php $form = ActiveForm::begin([
+    'options' => ['enctype' => 'multipart/form-data'],
+    ]); 
+?>
+<div class="col-md-offset-5">
     <?= $form->field($model, 'file')->fileInput() ?>
 
     <!--<button class="btn btn-primary">Submit</button>-->
@@ -19,4 +22,5 @@ $this->title = 'Upload a excel file';
             ],
     ])?>
     </div>
+</div>
 <?php ActiveForm::end() ?>

@@ -209,16 +209,6 @@ class VmController extends Controller
             }
         }
          return $this->render('upload', ['model' => $model]);
-        //test, add a line mock data to test CreateVM method
-
-//            $v = ['abc01235','abc01235','PoweredOn','127.0.0.1','linuxGuest','Linux Enterprise','64Guest',4096,'abc01234.bleu.about.hsbc',1,1,1,'vmx-07',0,'toolsOld','9344','guestToolsNeedUpgrade','Not Scripted',24,24,'Pass no issues found', 'GB'];
-//            $vm = new vm();
-//            if($vm->createVM($v)){
-//                return $this->redirect(['/sales/index']);
-//            } else {
-//                Yii::error($v);
-//            }
-//        }
     }
     
 }

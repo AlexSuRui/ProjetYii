@@ -16,9 +16,9 @@ $this->title = 'Virtual Machines';
 
     <p>
         <?= Html::a('Insert a virtual machine', ['create'], ['class' => 'btn btn-success']) ?>
-        <?= Html::a('Delete all sales',['truncate'],['class' => 'btn btn-danger', 
-            'data'=>['confirm'=>'Are you sure you want to delete all the sales?','method'=>'post',]])?>
-        <?= Html::a('Upload datas from a Excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Delete all data',['truncate'],['class' => 'btn btn-danger', 
+            'data'=>['confirm'=>'Warning: this will delete all the recordings','method'=>'post',]])?>
+        <?= Html::a('Upload data from a Excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
         <?= Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
     </p>
@@ -28,7 +28,9 @@ $this->title = 'Virtual Machines';
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            'inventory_date',
+            'region',
+            'vcenter_server',
             'vm_name',
             'vm_host_name',
             'vm_state',
