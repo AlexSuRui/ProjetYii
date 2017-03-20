@@ -156,9 +156,8 @@ class VmController extends Controller
 
 //       A emample file: $importFile = 'uploads/autofilter.xls';
         try{
-            // $inputFileType = \PHPExcel_IOFactory::indentify($inputFile);
-            // $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
-            $objReader = \PHPExcel_IOFactory::createReader('Excel5');
+            $inputFileType = \PHPExcel_IOFactory::identify($importFile);
+            $objReader = \PHPExcel_IOFactory::createReader($inputFileType);
             $objPHPExcel = $objReader->load($importFile);           
             }
         catch(Exception $e){
@@ -180,24 +179,16 @@ class VmController extends Controller
 //                Yii::$app->db->createCommand()->truncateTable('{{table}}')->execute();
                 $highestRow = $sheet->getHighestRow();
                 $highestColomn = $sheet->getHighestColumn();
-                //需要使用一个循环来输入
-                 for ($row = 2; $row<=$highestRow; $row++){
-                        $rowData = $sheet->rangeToArray('D'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
-                        $sale = new Sales();
-                        $sale->id = $row-1;
-                        $sale->year = strval($rowData[0][0]);
-                        $sale->quarter = $rowData[0][1];
-                        $sale->country = $rowData[0][2];
-                        $sale->sales = strval($rowData[0][3]);
-
-                        if(!$sale->save()){
-                            print_r($sale->getErrors());
-                            return false;
-                        }
+                //Use a loop to load data
+                for ($row = 1; $row<=$highestRow; $row++){
+                    $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
+                    $vm = new vm();
+                    if($vm->createVM($rowData[0])){
+                        return true;
+                    }else{
+                        return false;
+                    }
                 }
-                return true;
-            }else{
-                return false;
             }
     }
     /**
@@ -205,22 +196,29 @@ class VmController extends Controller
      * @return null
      */
     public function actionUpload(){
-//        $model = new UploadForm();
+        $model = new UploadForm();
 //        // 
-//        if (Yii::$app->request->isPost) {
-//        $model->file = UploadedFile::getInstance($model, 'file');
-//        $path = $model->upload();
-//        // method chargeFile at line 154
-//        $objPHPExcel = $this->chargeFile($path);
-//        $sheet = $objPHPExcel->getSheetByName('VM Data');
-//        //method loaddata at line 177
-//        //加一个标示
-//        if($this->loaddata($sheet)){
-//            return $this->render('upload', ['model' => $model]);
+        if (Yii::$app->request->isPost) {
+        $model->file = UploadedFile::getInstance($model, 'file');
+        $path = $model->upload();
+        $objPHPExcel = $this->chargeFile($path);
+        $sheet = $objPHPExcel->getSheetByName('VM Data');
+        if($this->loaddata($sheet))
+            {
+                return $this->redirect(['/vm/index']);
+            }
+        }
+         return $this->render('upload', ['model' => $model]);
+        //test, add a line mock data to test CreateVM method
+
+//            $v = ['abc01235','abc01235','PoweredOn','127.0.0.1','linuxGuest','Linux Enterprise','64Guest',4096,'abc01234.bleu.about.hsbc',1,1,1,'vmx-07',0,'toolsOld','9344','guestToolsNeedUpgrade','Not Scripted',24,24,'Pass no issues found', 'GB'];
+//            $vm = new vm();
+//            if($vm->createVM($v)){
+//                return $this->redirect(['/sales/index']);
+//            } else {
+//                Yii::error($v);
 //            }
 //        }
-        //test, add a line mock data to test CreateVM method
-        
     }
     
 }
