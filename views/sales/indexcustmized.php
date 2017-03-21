@@ -15,13 +15,16 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]);
             // get all the attributes of sales
+
+            
             $model = new Sales();
             $champs = $model->attributes();
             $array = array();
             // use a loop to get the values of swithinput via customize.php
             foreach ($champs as $champ){
-                array_push($array, isset($_POST[$champ])?$_POST[$champ] : false);
-            }?>
+                array_push($array, isset($_POST[$champ])?$_POST[$champ] : false);    
+            }
+            ?>
         <?= Html::a('Create Sales', ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Delete all sales',['truncate'],['class' => 'btn btn-danger', 
             'data'=>['confirm'=>'Are you sure you want to delete all the sales?','method'=>'post',]])?>

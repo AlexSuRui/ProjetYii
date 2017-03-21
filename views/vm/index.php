@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\vmSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -22,7 +21,6 @@ $this->title = 'Virtual Machines';
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
         <?= Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
     </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,

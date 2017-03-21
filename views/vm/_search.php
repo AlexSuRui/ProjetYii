@@ -55,7 +55,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'vm_compliance_check') ?>
 
-    <?php // echo $form->field($model, 'VMCountryCode') ?>
+    <?php   echo $form->field($model, 'VMCountryCode') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

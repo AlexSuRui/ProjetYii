@@ -27,6 +27,8 @@ class VmController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            
+         
         ];
     }
 
@@ -44,7 +46,18 @@ class VmController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
+    /**
+     * Custmized display
+     */
+    public function actionIndexcustmized(){
+        $searchModel = new vmSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
+        return $this->render('indexcustmized', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single vm model.
      * @param string $id
@@ -129,23 +142,15 @@ class VmController extends Controller
      */
     public function actionCustomize()
     {
+        $cookies = Yii::$app->response->cookies;
+        $cookies->remove('result');
+        unset($cookies['result']);
         $model = new vm();
         $champs = $model->attributes();
         return $this->render('customize', ['model' => $model,'champs' => $champs]);
         
     }    
-    /**
-     * Custmized display
-     */
-    public function actionIndexcustmized(){
-         $searchModel = new vmSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('indexcustmized', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
+    
     /**
      * Save data from a inputfile(excel) to Database(MySQL)
      * @param string $importFile
@@ -174,7 +179,7 @@ class VmController extends Controller
      * @return boolean 
      */
     protected function loaddata($sheet){
-            
+        
             if($sheet){
 //                Yii::$app->db->createCommand()->truncateTable('{{table}}')->execute();
                 $highestRow = $sheet->getHighestRow();

@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\salesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -25,6 +25,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'hover'=>true,
+        'responsive'=>true,
         'showHeader' => true,
         'showOnEmpty' => false,
         'columns' => [ 
@@ -61,6 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); 
     ?>
+    
+    
  
   
 </div>
