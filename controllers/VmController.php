@@ -121,6 +121,18 @@ class VmController extends Controller
     }
 
     /**
+     * Truncate a table
+     * If delete is successful, the browser will be redirected to the 'View'page.
+     */
+    public function actionTruncate()
+    {
+        Yii::$app->db->createCommand()->truncateTable('vm')->execute();
+        
+        return $this->redirect(['/vm/index']);
+            
+    }
+    
+    /**
      * Finds the vm model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
@@ -185,16 +197,15 @@ class VmController extends Controller
                 $highestRow = $sheet->getHighestRow();
                 $highestColomn = $sheet->getHighestColumn();
                 //Use a loop to load data
-                for ($row = 1; $row<=$highestRow; $row++){
-                    $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
-                    $vm = new vm();
-                    if($vm->createVM($rowData[0])){
-                        return true;
-                    }else{
-                        return false;
-                    }
+                for ($row = 2; $row<=$highestRow; $row++)
+                        {
+                            $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
+                            $vm = new vm();
+                            $vm->createVM($rowData[0]);
+                        }
+                return true;   
                 }
-            }
+            
     }
     /**
      * Upload a excel file

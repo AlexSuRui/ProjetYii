@@ -43,17 +43,21 @@ $this->params['breadcrumbs'][] = $this->title;
                 Yii::info($result);
         ?>
         <div style="margin-bottom: 2%">
-            <?= Html::a('Create Sales', ['create'], ['class' => 'btn btn-success',]) ?>
+            <?php // Html::a('Create Sales', ['create'], ['class' => 'btn btn-success',]) ?>
             <?= Html::a('Delete all sales',['truncate'],['class' => 'btn btn-danger', 
                 'data'=>['confirm'=>'Are you sure you want to delete all the sales?','method'=>'post',]])?>
             <?= Html::a('Upload datas from a Excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
             <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
-            <?= Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
+            <?php // Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
         </div>
         <?php Pjax::begin(); ?>
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
+                 'pager' => [
+                    'firstPageLabel' => 'First',
+                    'lastPageLabel'  => 'Last'
+                ],
     //            'options'=>[
     //                'style' =>'padding-top:2%'
     //            ],

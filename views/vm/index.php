@@ -14,16 +14,20 @@ $this->title = 'Virtual Machines';
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Insert a virtual machine', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php // Html::a('Insert a virtual machine', ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Delete all data',['truncate'],['class' => 'btn btn-danger', 
             'data'=>['confirm'=>'Warning: this will delete all the recordings','method'=>'post',]])?>
         <?= Html::a('Upload data from a Excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
-        <?= Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
+        <?php // Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'pager' => [
+                    'firstPageLabel' => 'First',
+                    'lastPageLabel'  => 'Last'
+                ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'inventory_date',

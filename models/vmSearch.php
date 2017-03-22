@@ -2,14 +2,15 @@
 
 namespace app\models;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\vm;
 
 /**
- * VMSearch represents the model behind the search form of `app\models\vm`.
+ * vmSearch represents the model behind the search form of `app\models\vm`.
  */
-class VMSearch extends vm
+class vmSearch extends vm
 {
     /**
      * @inheritdoc
@@ -46,8 +47,10 @@ class VMSearch extends vm
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination'=>[
+                'pageSize' => 50,
+            ],
         ]);
-
         $this->load($params);
 
         if (!$this->validate()) {
@@ -58,7 +61,7 @@ class VMSearch extends vm
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'inventory_date' => $this->inventory_date,
+//            'inventory_date' => $this->inventory_date,
             'vm_memory' => $this->vm_memory,
             'vm_total_vcpu' => $this->vm_total_vcpu,
             'vm_num_cpus' => $this->vm_num_cpus,
@@ -67,8 +70,9 @@ class VMSearch extends vm
             'vm_provisionedspaceGB' => $this->vm_provisionedspaceGB,
             'vm_usedspaceGB' => $this->vm_usedspaceGB,
         ]);
-
-        $query->andFilterWhere(['like', 'region', $this->region])
+        
+        $query->andFilterWhere(['like','inventory_date', $this->inventory_date])
+            ->andFilterWhere(['like', 'region', $this->region])
             ->andFilterWhere(['like', 'vcenter_server', $this->vcenter_server])
             ->andFilterWhere(['like', 'vm_name', $this->vm_name])
             ->andFilterWhere(['like', 'vm_host_name', $this->vm_host_name])
