@@ -28,6 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
+            'inventory_date',
+            'region',
             'vm_name',
             'vm_host_name',
             'vm_state',

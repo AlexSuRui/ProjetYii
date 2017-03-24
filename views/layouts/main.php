@@ -27,10 +27,11 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Test',
+        'brandLabel'  => Html::img('@web/images/hsbc.png'),
+        'brandOptions' => ['class' => 'myclass'],
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-hsbc navbar-fixed-top',
         ],
     ]);
     echo Nav::widget([
@@ -38,7 +39,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
 //            ['label' => 'About', 'url' => ['/site/about']],
-//            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'ESX Data', 'url' => ['/esx/index']],
             ['label' => 'VM Data','url' =>['/vm/index']],
             ['label' => 'Sales', 'url' => ['/sales/index']],
             Yii::$app->user->isGuest ? (

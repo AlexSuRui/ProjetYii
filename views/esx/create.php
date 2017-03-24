@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\MyTable */
+/* @var $model app\models\esx */
 
-$this->title = 'Create My Table';
-$this->params['breadcrumbs'][] = ['label' => 'My Tables', 'url' => ['index']];
+$this->title = 'Create Esx';
+$this->params['breadcrumbs'][] = ['label' => 'Esxes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="my-table-create">
+<div class="esx-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

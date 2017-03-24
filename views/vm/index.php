@@ -2,11 +2,16 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\jui\DatePicker;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\vmSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Virtual Machines';
+$this->params['breadcrumbs'][] = [
+    'label'=>$this->title,
+    'options'=>['class'=>'breadcrumbs'],
+]
 ?>
 <div class="vm-index">
 
@@ -19,7 +24,7 @@ $this->title = 'Virtual Machines';
             'data'=>['confirm'=>'Warning: this will delete all the recordings','method'=>'post',]])?>
         <?= Html::a('Upload data from a Excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
-        <?php // Html::a('Avanced search',['search'],['class' => 'btn btn-default'])?>
+        <?= Html::a('Test search',['evolution'],['class' => 'btn btn-default'])?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -30,7 +35,12 @@ $this->title = 'Virtual Machines';
                 ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'inventory_date',
+            
+            [
+                'attribute'=>'inventory_date',
+                'value'=>'inventory_date',
+                'filter' => \yii\jui\DatePicker::widget(['language' => 'fr', 'dateFormat' => 'yyyy-mm-dd'])
+            ],
             'region',
             'vcenter_server',
             'vm_name',
@@ -56,7 +66,14 @@ $this->title = 'Virtual Machines';
              'vm_compliance_check',
              'VMCountryCode',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                                'template'=>'{view} {update} {delete}',
+                                'buttons' => [
+                                   'view' => function ($url,$model) {
+                                           return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 
+                                                   'http://localhost:8080/index.php?r=vm%2Fevolution', ['title' => Yii::t('app', 'evolution'),]);},
+                                            ],
+            ],
         ],
     ]); ?>
 </div>

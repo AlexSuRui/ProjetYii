@@ -3,17 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\vm;
-use app\models\vmSearch;
-use app\models\UploadForm;
+use app\models\esx;
+use app\models\esxSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
+
 /**
- * VmController implements the CRUD actions for vm model.
+ * EsxController implements the CRUD actions for esx model.
  */
-class VmController extends Controller
+class EsxController extends Controller
 {
     /**
      * @inheritdoc
@@ -27,18 +26,16 @@ class VmController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            
-         
         ];
     }
 
     /**
-     * Lists all vm models.
+     * Lists all esx models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new vmSearch();
+        $searchModel = new esxSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -50,7 +47,7 @@ class VmController extends Controller
      * Custmized display
      */
     public function actionIndexcustmized(){
-        $searchModel = new vmSearch();
+        $searchModel = new esxSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
         return $this->render('indexcustmized', [
@@ -58,34 +55,31 @@ class VmController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
     /**
-     * Displays a single vm model.
-     * @param string $id
+     * Displays a single esx model.
+     * @param string $inventory_date
+     * @param string $FQDN
      * @return mixed
      */
-    public function actionView($vm_name,$inventory_date)
+    public function actionView($inventory_date, $FQDN)
     {
-        
-        $id=[
-            'vm_name'=>$vm_name,
-            'inventory_date'=>$inventory_date,
-        ];
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($inventory_date, $FQDN),
         ]);
     }
 
     /**
-     * Creates a new vm model.
+     * Creates a new esx model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new vm();
+        $model = new esx();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->vm_host_name]);
+            return $this->redirect(['view', 'inventory_date' => $model->inventory_date, 'FQDN' => $model->FQDN]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -94,17 +88,18 @@ class VmController extends Controller
     }
 
     /**
-     * Updates an existing vm model.
+     * Updates an existing esx model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param string $inventory_date
+     * @param string $FQDN
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($inventory_date, $FQDN)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($inventory_date, $FQDN);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->vm_host_name]);
+            return $this->redirect(['view', 'inventory_date' => $model->inventory_date, 'FQDN' => $model->FQDN]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -113,46 +108,35 @@ class VmController extends Controller
     }
 
     /**
-     * Deletes an existing vm model.
+     * Deletes an existing esx model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param string $inventory_date
+     * @param string $FQDN
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($inventory_date, $FQDN)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($inventory_date, $FQDN)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Truncate a table
-     * If delete is successful, the browser will be redirected to the 'View'page.
-     */
-    public function actionTruncate()
-    {
-        Yii::$app->db->createCommand()->truncateTable('vm')->execute();
-        
-        return $this->redirect(['/vm/index']);
-            
-    }
-    
-    /**
-     * Finds the vm model based on its primary key value.
+     * Finds the esx model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return vm the loaded model
+     * @param string $inventory_date
+     * @param string $FQDN
+     * @return esx the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($inventory_date, $FQDN)
     {
-        if (($model = vm::findOne($id)) !== null) {
+        if (($model = esx::findOne(['inventory_date' => $inventory_date, 'FQDN' => $FQDN])) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    
     /**
      * Custmize a display table
      * Transfer the model(sale) and the name of attributes to view
@@ -162,12 +146,11 @@ class VmController extends Controller
         $cookies = Yii::$app->response->cookies;
         $cookies->remove('result');
         unset($cookies['result']);
-        $model = new vm();
+        $model = new esx();
         $champs = $model->attributes();
         return $this->render('customize', ['model' => $model,'champs' => $champs]);
         
     }    
-    
     /**
      * Save data from a inputfile(excel) to Database(MySQL)
      * @param string $importFile
@@ -189,8 +172,7 @@ class VmController extends Controller
 
         return $objPHPExcel;
 
-    }
-    /**
+    }/**
      * Load data from sheet, return a sign (true of false) to ensure if the load successes
      * @param type $objPHPExcel
      * @param type $sheetName 
@@ -212,8 +194,7 @@ class VmController extends Controller
                 return true;   
                 }
             
-    }
-    /**
+    }/**
      * Upload a excel file
      * @return null
      */
@@ -224,7 +205,7 @@ class VmController extends Controller
         $model->file = UploadedFile::getInstance($model, 'file');
         $path = $model->upload();
         $objPHPExcel = $this->chargeFile($path);
-        $sheet = $objPHPExcel->getSheetByName('VM Data');
+        $sheet = $objPHPExcel->getSheetByName('ESX Data');
         if($this->loaddata($sheet))
             {
                 return $this->redirect(['/vm/index']);
@@ -232,14 +213,4 @@ class VmController extends Controller
         }
          return $this->render('upload', ['model' => $model]);
     }
-    
-    public function actionEvolution(){
-        
-        $vmName = 'xxx00001';
-        $dates =['2016-06-28 20:23:37','2016-07-28 23:31:49','2017-01-06 09:25:56','2017-02-22 18:20:07','2017-03-17 17:59:38'];
-        $memories = [22648,11324,33972,28310,16986];
-//        $memories = vm::find()->where(['vm_name'=>$vmName])->select('vm_memory')->asArray()->all();
-        return $this->render('evolution',['vmName'=>$vmName,'dates'=>$dates,'memories'=>$memories]);
-    }
-    
 }

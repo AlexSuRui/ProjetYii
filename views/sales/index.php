@@ -25,11 +25,44 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'hover'=>true,
-        'responsive'=>true,
-        'showHeader' => true,
-        'showOnEmpty' => false,
+//        'floatHeader'=>true,
+//        'floatHeaderOptions'=>['scrollingTop'=>'50'],
+        
+        'pjax'=>true,
+        'pjaxSettings'=>[
+                'neverTimeout'=>true,
+                'beforeGrid'=>'My fancy content before.',
+                'afterGrid'=>'My fancy content after.',
+                ],
         'columns' => [ 
+            [
+                'class'=>'kartik\grid\EditableColumn',
+                'attribute'=>'publish_date',    
+                'hAlign'=>'center',
+                'vAlign'=>'middle',
+                'width'=>'9%',
+                'format'=>'date',
+                'xlFormat'=>"mmm\\-dd\\, \\-yyyy",
+                'readonly'=>function($model, $key, $index, $widget) {
+                    return (!$model->status); // do not allow editing of inactive records
+                },
+                'editableOptions'=>[
+                    'header'=>'Publish Date', 
+                    'size'=>'md',
+                    'inputType'=>\kartik\editable\Editable::INPUT_WIDGET,
+                    'widgetClass'=> 'kartik\datecontrol\DateControl',
+                    'options'=>[
+                        'type'=>\kartik\datecontrol\DateControl::FORMAT_DATE,
+                        'displayFormat'=>'dd.MM.yyyy',
+                        'saveFormat'=>'php:Y-m-d',
+                        'options'=>[
+                            'pluginOptions'=>[
+                                'autoclose'=>true
+                            ]
+                        ]
+                    ]
+                ],
+            ],
             ['class' => 'yii\grid\SerialColumn'],
                 [
                     'label'=>'ID',

@@ -38,7 +38,13 @@ class vm extends \yii\db\ActiveRecord
     {
         return 'vm';
     }
-
+    
+    public static function primaryKey() {
+        return [
+           'inventory_date',
+           'vm_name',
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -48,8 +54,7 @@ class vm extends \yii\db\ActiveRecord
             [['inventory_date', 'region', 'vcenter_server', 'vm_name', 'vm_host_name', 'vm_state', 'vm_ip', 'vm_family', 'vm_guest_full_name', 'vm_guest_id', 'vm_memory', 'vm_esx_host', 'vm_total_vcpu', 'vm_num_cpus', 'vm_num_cores_per_cpu', 'vm_hardware_version', 'vm_is_template', 'vm_tools_status', 'vm_tools_version', 'vm_tools_version_status', 'vm_name_check', 'vm_provisionedspaceGB', 'vm_usedspaceGB', 'vm_compliance_check', 'VMCountryCode'], 'required'],
             [['inventory_date'], 'safe'],
             [['vm_memory', 'vm_total_vcpu', 'vm_num_cpus', 'vm_num_cores_per_cpu', 'vm_is_template', 'vm_tools_version', 'vm_provisionedspaceGB', 'vm_usedspaceGB'], 'integer'],
-            [['region'], 'string', 'max' => 20],
-            [['vcenter_server', 'vm_name', 'vm_host_name', 'vm_state', 'vm_ip', 'vm_family', 'vm_guest_full_name', 'vm_guest_id', 'vm_esx_host', 'vm_hardware_version', 'vm_tools_status', 'vm_tools_version_status', 'vm_name_check', 'vm_compliance_check', 'VMCountryCode'], 'string', 'max' => 100],
+            [['region', 'vcenter_server', 'vm_name', 'vm_host_name', 'vm_state', 'vm_ip', 'vm_family', 'vm_guest_full_name', 'vm_guest_id', 'vm_esx_host', 'vm_hardware_version', 'vm_tools_status', 'vm_tools_version_status', 'vm_name_check', 'vm_compliance_check', 'VMCountryCode'], 'string', 'max' => 255],
         ];
     }
 

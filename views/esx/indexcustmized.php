@@ -2,16 +2,13 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use app\models\vm;
+use app\models\esx;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\salesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Virtual Machines';
-$this->params['breadcrumbs'][] = [
-    'label'=>$this->title,
-    'options'=>['class'=>'breadcrumbs'],
-]
+$this->params['breadcrumbs'][] = $this->title;
 ?>
     <div class="vm-index" >
 
@@ -23,7 +20,7 @@ $this->params['breadcrumbs'][] = [
                     if (($cookie = $cookies1->get('result')) !== null){
                         $result = $cookie->value;
                     } else {
-                        $model = new vm();
+                        $model = new esx();
                         $champs = $model->attributes();
                     // use a loop to get the values of swithinput via customize.php
                         foreach ($champs as $champ){
@@ -63,7 +60,7 @@ $this->params['breadcrumbs'][] = [
     //                'style' =>'padding-top:2%'
     //            ],
                 'showHeader' => true,
-                'showOnEmpty' => false,
+                'showOnEmpty' => true,
                 'columns' => array_merge(
                             array_merge([['class' => 'yii\grid\SerialColumn']],$result),
                         [['class' => 'yii\grid\ActionColumn',
