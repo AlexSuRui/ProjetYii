@@ -109,4 +109,7 @@ class vm extends \yii\db\ActiveRecord
         }
             
     }
+    public function valueCallback($champ){
+          return Html::a($champ, ['site/index']);
+    }
 }   

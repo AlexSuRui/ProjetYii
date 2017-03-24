@@ -4,74 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e180a9f3ba81cb910dbfb063b9e4d1f0",
+    "content-hash": "63ffdff3e4a4dacbf2cfb4bd16952551",
     "packages": [
-        {
-            "name": "2amigos/yii2-switch-widget",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/2amigos/yii2-switch-widget.git",
-                "reference": "1f2b343080aa25cd1d51d160c8019a755346b3be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/2amigos/yii2-switch-widget/zipball/1f2b343080aa25cd1d51d160c8019a755346b3be",
-                "reference": "1f2b343080aa25cd1d51d160c8019a755346b3be",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap-switch": "~3.3.2",
-                "yiisoft/yii2": "~2.0.0",
-                "yiisoft/yii2-bootstrap": "~2.0.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                },
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "dosamigos\\switchinput\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "2amigOS! Consulting Group",
-                    "email": "hola@2amigos.us",
-                    "homepage": "http://2amigos.us",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Alexander Kochetov",
-                    "email": "creocoder@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The bootstrap switch widget for the Yii framework",
-            "homepage": "https://github.com/2amigos/yii2-switch-widget",
-            "keywords": [
-                "2amigos",
-                "switch",
-                "widget",
-                "yii",
-                "yii 2",
-                "yii2"
-            ],
-            "time": "2015-04-06 14:31:24"
-        },
         {
             "name": "bower-asset/bootstrap",
             "version": "v3.3.7",
@@ -120,169 +54,6 @@
                 "responsive",
                 "web"
             ]
-        },
-        {
-            "name": "bower-asset/bootstrap-switch",
-            "version": "v3.3.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Bttstrp/bootstrap-switch.git",
-                "reference": "e1a9a9c135ed062ac362d2f8345a71417fb10758"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Bttstrp/bootstrap-switch/zipball/e1a9a9c135ed062ac362d2f8345a71417fb10758",
-                "reference": "e1a9a9c135ed062ac362d2f8345a71417fb10758",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=2.3.2",
-                "bower-asset/jquery": ">=1.9.0"
-            },
-            "require-dev": {
-                "bower-asset/jquery": "~2.1"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "./dist/js/bootstrap-switch.js",
-                    "./dist/css/bootstrap3/bootstrap-switch.css"
-                ],
-                "bower-asset-ignore": [
-                    "docs",
-                    "test",
-                    "CNAME",
-                    "composer.json",
-                    "CONTRIBUTING.md",
-                    "index.html",
-                    "package.json"
-                ]
-            },
-            "license": [
-                "Apache-2.0"
-            ],
-            "description": "Turn checkboxes and radio buttons into toggle switches."
-        },
-        {
-            "name": "bower-asset/bootstrap3-dialog",
-            "version": "v1.35.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nakupanda/bootstrap3-dialog.git",
-                "reference": "4aa9d536516957e01c39afd1b5e8bdd88976ef7b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nakupanda/bootstrap3-dialog/zipball/4aa9d536516957e01c39afd1b5e8bdd88976ef7b",
-                "reference": "4aa9d536516957e01c39afd1b5e8bdd88976ef7b",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/bootstrap": ">=3.1.0",
-                "bower-asset/jquery": ">=1.9.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "dist/less/bootstrap-dialog.less",
-                    "dist/css/bootstrap-dialog.min.css",
-                    "dist/js/bootstrap-dialog.min.js"
-                ],
-                "bower-asset-ignore": [
-                    "source",
-                    "spec",
-                    ".bowerrc",
-                    ".gitignore",
-                    ".jshintignore",
-                    ".jshintrc",
-                    "bower.json",
-                    "gruntfile.js",
-                    "package.json",
-                    "README.md"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "Make use of Bootstrap Modal more monkey-friendly. http://nakupanda.github.io/bootstrap3-dialog/",
-            "keywords": [
-                "css",
-                "framework",
-                "front-end",
-                "js",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ]
-        },
-        {
-            "name": "bower-asset/c3",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/c3js/c3.git",
-                "reference": "4669b28044700990b8322c4d8f8eb9e51ad73963"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/c3js/c3/zipball/4669b28044700990b8322c4d8f8eb9e51ad73963",
-                "reference": "4669b28044700990b8322c4d8f8eb9e51ad73963",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/d3": "~3.5.0"
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": [
-                    "c3.css",
-                    "c3.js"
-                ],
-                "bower-asset-ignore": [
-                    "**/.*",
-                    "node_modules",
-                    "bower_components",
-                    "htdocs",
-                    "spec",
-                    "src",
-                    "package.json",
-                    "component.json",
-                    "Gruntfile.*"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "D3-based reusable chart library",
-            "keywords": [
-                "chart",
-                "d3"
-            ]
-        },
-        {
-            "name": "bower-asset/d3",
-            "version": "v3.5.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mbostock-bower/d3-bower.git",
-                "reference": "7a826d211d5067867debf9ce24a9987e0cb02b6e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mbostock-bower/d3-bower/zipball/7a826d211d5067867debf9ce24a9987e0cb02b6e",
-                "reference": "7a826d211d5067867debf9ce24a9987e0cb02b6e",
-                "shasum": ""
-            },
-            "type": "bower-asset-library",
-            "extra": {
-                "bower-asset-main": "d3.js",
-                "bower-asset-ignore": []
-            },
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "description": "A JavaScript visualization library for HTML and SVG."
         },
         {
             "name": "bower-asset/highcharts",
@@ -582,32 +353,31 @@
             "time": "2017-03-13T06:30:53+00:00"
         },
         {
-            "name": "kartik-v/yii2-dialog",
+            "name": "kartik-v/yii2-date-range",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/kartik-v/yii2-dialog.git",
-                "reference": "8c12fabcd45634ab1091e5bf4c2a9132dfb695a4"
+                "url": "https://github.com/kartik-v/yii2-date-range.git",
+                "reference": "d75e44406856fc9cabc06d2b9efb98b60323c2c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-dialog/zipball/8c12fabcd45634ab1091e5bf4c2a9132dfb695a4",
-                "reference": "8c12fabcd45634ab1091e5bf4c2a9132dfb695a4",
+                "url": "https://api.github.com/repos/kartik-v/yii2-date-range/zipball/d75e44406856fc9cabc06d2b9efb98b60323c2c4",
+                "reference": "d75e44406856fc9cabc06d2b9efb98b60323c2c4",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/bootstrap3-dialog": "~1.34",
-                "kartik-v/yii2-krajee-base": "~1.7"
+                "kartik-v/yii2-krajee-base": "*"
             },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "kartik\\dialog\\": ""
+                    "kartik\\daterange\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -621,70 +391,20 @@
                     "homepage": "http://www.krajee.com/"
                 }
             ],
-            "description": "An asset bundle for bootstrap3-dialog for Yii 2.0 framework.",
-            "homepage": "https://github.com/kartik-v/yii2-dialog",
+            "description": "An advanced Yii 2 date range picker input for based on bootstrap-daterangepicker plugin.",
+            "homepage": "https://github.com/kartik-v/yii2-date-range",
             "keywords": [
-                "alert",
                 "bootstrap",
-                "dialog",
+                "bootstrap 3",
+                "date",
+                "date-range",
                 "extension",
-                "modal",
-                "yii2"
-            ],
-            "time": "2017-03-11 08:47:41"
-        },
-        {
-            "name": "kartik-v/yii2-grid",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "05b889d6b51cdebd7e442be51b3cb7cf4f49fb9a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/05b889d6b51cdebd7e442be51b3cb7cf4f49fb9a",
-                "reference": "05b889d6b51cdebd7e442be51b3cb7cf4f49fb9a",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-dialog": "~1.0",
-                "kartik-v/yii2-krajee-base": "~1.7"
-            },
-            "suggest": {
-                "kartik-v/yii2-mpdf": "For exporting grids to PDF"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\grid\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "Yii 2 GridView on steroids. Various enhancements and utilities for the Yii 2.0 GridView widget.",
-            "homepage": "https://github.com/kartik-v/yii2-grid",
-            "keywords": [
-                "extension",
-                "grid",
+                "range",
+                "time",
                 "widget",
                 "yii2"
             ],
-            "time": "2017-03-11 10:54:52"
+            "time": "2017-03-22 17:55:06"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -953,68 +673,17 @@
             "time": "2017-02-24T19:52:51+00:00"
         },
         {
-            "name": "yii2mod/yii2-c3-chart",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yii2mod/yii2-c3-chart.git",
-                "reference": "75720eb5bca7a64a2c8b81cc2ce2902894e424be"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yii2mod/yii2-c3-chart/zipball/75720eb5bca7a64a2c8b81cc2ce2902894e424be",
-                "reference": "75720eb5bca7a64a2c8b81cc2ce2902894e424be",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/c3": "*",
-                "yiisoft/yii2": "*",
-                "yiisoft/yii2-bootstrap": "*"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "~2.0"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "asset-installer-paths": {
-                    "bower-asset-library": "vendor/bower"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "yii2mod\\c3\\chart\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Igor Chepurnoy",
-                    "email": "igorzfort@gmail.com"
-                }
-            ],
-            "description": "Yii2 wrapper for D3-based reusable chart library",
-            "keywords": [
-                "yii2",
-                "yii2 c3 chart",
-                "yii2 c3.js"
-            ],
-            "time": "2017-03-07T16:49:10+00:00"
-        },
-        {
             "name": "yiisoft/yii2",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "075016d1f74b16616161853af879557f610410a7"
+                "reference": "ec2697bbdd0447a1b16be8e2c25f19a405e68d0d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/075016d1f74b16616161853af879557f610410a7",
-                "reference": "075016d1f74b16616161853af879557f610410a7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ec2697bbdd0447a1b16be8e2c25f19a405e68d0d",
+                "reference": "ec2697bbdd0447a1b16be8e2c25f19a405e68d0d",
                 "shasum": ""
             },
             "require": {
@@ -1101,7 +770,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-03-16 22:59:11"
+            "time": "2017-03-24 11:18:05"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1617,12 +1286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "c6d2e74fc23f5b8c004a74c011d297976ee41dc5"
+                "reference": "489dec479a089af0beaaa54b255d507ec34b21e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/c6d2e74fc23f5b8c004a74c011d297976ee41dc5",
-                "reference": "c6d2e74fc23f5b8c004a74c011d297976ee41dc5",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/489dec479a089af0beaaa54b255d507ec34b21e3",
+                "reference": "489dec479a089af0beaaa54b255d507ec34b21e3",
                 "shasum": ""
             },
             "require": {
@@ -1630,7 +1299,7 @@
             },
             "require-dev": {
                 "ext-intl": "*",
-                "phpunit/phpunit": "~4.0",
+                "phpunit/phpunit": "~4.0||~5.0",
                 "squizlabs/php_codesniffer": "~1.5"
             },
             "type": "library",
@@ -1659,7 +1328,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-17 17:56:19"
+            "time": "2017-03-22T22:23:34+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1667,12 +1336,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855"
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/0d6c7ca039329247e4f0f8f8f6506810e8248855",
-                "reference": "0d6c7ca039329247e4f0f8f8f6506810e8248855",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
                 "shasum": ""
             },
             "require": {
@@ -1724,7 +1393,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-02-27T10:51:17+00:00"
+            "time": "2017-03-20T17:10:46+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2270,12 +1939,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf"
+                "reference": "c4ebb68af6e68179eb2381603ad35032622894cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68752b665d3875f9a38a357e3ecb35c79f8673bf",
-                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c4ebb68af6e68179eb2381603ad35032622894cf",
+                "reference": "c4ebb68af6e68179eb2381603ad35032622894cf",
                 "shasum": ""
             },
             "require": {
@@ -2344,7 +2013,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-19 16:52:12"
+            "time": "2017-03-20T17:41:26+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3078,12 +2747,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "2e8369faed1e0bf0fb7d2831832544d204a9a133"
+                "reference": "49219ff04e2df75b7118b17fcc71123679d91d65"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/2e8369faed1e0bf0fb7d2831832544d204a9a133",
-                "reference": "2e8369faed1e0bf0fb7d2831832544d204a9a133",
+                "url": "https://api.github.com/repos/symfony/console/zipball/49219ff04e2df75b7118b17fcc71123679d91d65",
+                "reference": "49219ff04e2df75b7118b17fcc71123679d91d65",
                 "shasum": ""
             },
             "require": {
@@ -3138,7 +2807,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-17 13:55:48"
+            "time": "2017-03-23T18:14:29+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3311,12 +2980,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "cda8f2221699713cdc87cb93909b53512c6a99ad"
+                "reference": "6813d5fde9b4263e3ba968f654d4913733e0996c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/cda8f2221699713cdc87cb93909b53512c6a99ad",
-                "reference": "cda8f2221699713cdc87cb93909b53512c6a99ad",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/6813d5fde9b4263e3ba968f654d4913733e0996c",
+                "reference": "6813d5fde9b4263e3ba968f654d4913733e0996c",
                 "shasum": ""
             },
             "require": {
@@ -3366,7 +3035,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-17 13:55:48"
+            "time": "2017-03-21T21:44:47+00:00"
         },
         {
             "name": "symfony/finder",
@@ -3374,12 +3043,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "1558dea3daea8ddca57ef2c95745f863ce4b2a1e"
+                "reference": "851a8764b99bd4173b9992d09ab91050803f0385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/1558dea3daea8ddca57ef2c95745f863ce4b2a1e",
-                "reference": "1558dea3daea8ddca57ef2c95745f863ce4b2a1e",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/851a8764b99bd4173b9992d09ab91050803f0385",
+                "reference": "851a8764b99bd4173b9992d09ab91050803f0385",
                 "shasum": ""
             },
             "require": {
@@ -3415,7 +3084,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-02-21T10:07:34+00:00"
+            "time": "2017-03-20T10:06:58+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3482,12 +3151,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d1abb473764f82339862b114b45b3cd424b2d1a3"
+                "reference": "76ae7f27e17ab4e5e177d8f9aa6c116d56fe47df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d1abb473764f82339862b114b45b3cd424b2d1a3",
-                "reference": "d1abb473764f82339862b114b45b3cd424b2d1a3",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/76ae7f27e17ab4e5e177d8f9aa6c116d56fe47df",
+                "reference": "76ae7f27e17ab4e5e177d8f9aa6c116d56fe47df",
                 "shasum": ""
             },
             "require": {
@@ -3529,7 +3198,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-07T16:54:31+00:00"
+            "time": "2017-03-22T19:08:11+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -3587,12 +3256,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "9dbf5afaa6bb73d1fc6b3bd8e5b30af3849fdae1"
+                "reference": "6065b9784078881ff7b0301004342d210fec77b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/9dbf5afaa6bb73d1fc6b3bd8e5b30af3849fdae1",
-                "reference": "9dbf5afaa6bb73d1fc6b3bd8e5b30af3849fdae1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/6065b9784078881ff7b0301004342d210fec77b0",
+                "reference": "6065b9784078881ff7b0301004342d210fec77b0",
                 "shasum": ""
             },
             "require": {
@@ -3626,7 +3295,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2017-03-13 13:21:16"
+            "time": "2017-03-21T14:37:54+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -3732,8 +3401,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpoffice/phpexcel": 20,
-        "kartik-v/yii2-grid": 20
+        "phpoffice/phpexcel": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

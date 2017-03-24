@@ -27,9 +27,13 @@ $this->params['breadcrumbs'][] = [
                         $champs = $model->attributes();
                     // use a loop to get the values of swithinput via customize.php
                         foreach ($champs as $champ){
-        //              $v = isset($_POST[$champ])?$_POST[$champ] : false;
+                    //      $v = isset($_POST[$champ])?$_POST[$champ] : false;
                             $v = isset($_POST[$champ])?true : false;
-                            array_push($result, ['attribute'=>$champ, 'visible'=>$v]);
+                        if($champ=='vm_esx_host'){
+                            continue;
+                            }else{
+                                array_push($result, ['attribute'=>$champ, 'visible'=>$v]);
+                            }  
                         }   
                        $cookies =  Yii::$app->response->cookies;
                        $cookies -> add(new \yii\web\Cookie([
@@ -65,17 +69,21 @@ $this->params['breadcrumbs'][] = [
                 'showHeader' => true,
                 'showOnEmpty' => false,
                 'columns' => array_merge(
-                            array_merge([['class' => 'yii\grid\SerialColumn']],$result),
-                        [['class' => 'yii\grid\ActionColumn',
-                                'template'=>'{view} {update} {delete}',
-                                'buttons' => [
-                                   'view' => function ($url,$model) {   
-                                           return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 
-                                           $url);},
-                                            ],
-            ],])
-            ]); 
-            ?>
+                                array_merge([['class' => 'yii\grid\SerialColumn']],
+                                    array_merge([['attribute'=>  'vm_esx_host','format' => 'raw','value'=>function ($data) {
+                                                                    return Html::a($data->vm_esx_host,['site/index']);
+                                                                    },
+                                                        ]],$result)),
+                                                        [['class' => 'yii\grid\ActionColumn',
+                                                            'template'=>'{view} {update} {delete}',
+                                                            'buttons' => [
+                                                               'view' => function ($url,$model) {   
+                                                                       return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 
+                                                                       $url);},
+                                                                        ],
+                                                        ],])
+                                            ]); 
+        ?>
 
     </div>
 <?php

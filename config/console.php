@@ -22,6 +22,11 @@ $config = [
         ],
         'db' => $db,
     ],
+    'modules'=>[
+      'gridview' =>[
+          'class'=>'\kartik\grid\Module'
+      ]  
+    ],
     'params' => $params,
     /*
     'controllerMap' => [

@@ -70,8 +70,10 @@ class vmSearch extends vm
             'vm_provisionedspaceGB' => $this->vm_provisionedspaceGB,
             'vm_usedspaceGB' => $this->vm_usedspaceGB,
         ]);
+        $today = date('y-m-d h:i:s a', time());
+        Yii::warning($today);
         
-        $query->andFilterWhere(['like','inventory_date', $this->inventory_date])
+        $query->andFilterWhere(['between','inventory_date', $this->inventory_date,$today])
             ->andFilterWhere(['like', 'region', $this->region])
             ->andFilterWhere(['like', 'vcenter_server', $this->vcenter_server])
             ->andFilterWhere(['like', 'vm_name', $this->vm_name])

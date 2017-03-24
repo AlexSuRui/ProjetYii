@@ -41,10 +41,17 @@ class VmController extends Controller
         $searchModel = new vmSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+       if (Yii::$app->request->isPjax) {
+            return $this->renderPartial('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else {
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
     }
     /**
      * Custmized display
@@ -53,10 +60,17 @@ class VmController extends Controller
         $searchModel = new vmSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
-        return $this->render('indexcustmized', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        if (Yii::$app->request->isPjax) {
+            return $this->renderPartial('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        } else {
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
     }
     /**
      * Displays a single vm model.
