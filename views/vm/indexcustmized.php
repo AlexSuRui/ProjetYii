@@ -41,9 +41,7 @@ $this->params['breadcrumbs'][] = [
                            'value' => $result,
                        ]));
                     }
-//                    $cache->set('result',$results);
-//                    Yii::error($cache);
-//                }
+
         
                 Yii::info($result);
         ?>

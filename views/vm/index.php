@@ -41,9 +41,10 @@ $this->params['breadcrumbs'][] = [
               'attribute'=>  'vm_esx_host',
               //'value'=> 'vm_esx_host',
               'format' => 'raw',
-                    'value'=>function ($data) {
-                         return Html::a($data->vm_esx_host,"https://www.google.fr/#q=$data->vm_esx_host",['id'=>'popupModal']);
+              'value'=>function ($data) {
+                         return Html::a($data->vm_esx_host,"https://www.google.fr/#q=$data->vm_esx_host",['target'=>'_blank']);
                      },
+               'filter' =>yii\helpers\ArrayHelper::map(\app\models\vm::find()->groupBy('vm_esx_host')->asArray()->all(),'vm_esx_host','vm_esx_host'),
             ],
             [
                 'attribute'=>'inventory_date',
@@ -61,7 +62,9 @@ $this->params['breadcrumbs'][] = [
                 'attribute'=>'vm_name',
                 'value'=>'vm_name',
                 'format'=>'raw',
-                'filter' => yii\helpers\ArrayHelper::map(\app\models\vm::find()->groupBy('vm_name')->asArray()->all(),'vm_name','vm_name')
+//                'filter' => yii\helpers\ArrayHelper::map(\app\models\vm::find()->groupBy('vm_name')->asArray()->all(),'vm_name','vm_name')
+                ],
+                             
             'vm_host_name',
             'vm_state',
             'vm_ip',
