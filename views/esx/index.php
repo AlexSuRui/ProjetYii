@@ -15,8 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
+        <?= Html::a('Delete all data',['truncate'],['class' => 'btn btn-danger', 
+            'data'=>['confirm'=>'Warning: this will delete all the recordings','method'=>'post',]])?>
         <?= Html::a('Create Esx', ['create'], ['class' => 'btn btn-success']) ?>
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
     </p>
@@ -28,12 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'inventory_date',
-            'region',
-            'vcenter_server',
-            'UUID',
-            'device_name',
-            // 'FQDN',
-            // 'connected_state',
+            // 'region',
+//            'vcenter_server',
+//            'UUID',
+//            'device_name',
+             'FQDN',
+             'connected_state',
             // 'device_manufacturer',
             // 'device_model',
             // 'device_serial_number',
@@ -41,21 +42,21 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'operating_system_name',
             // 'operating_system_version',
             // 'operating_system_build',
-            // 'ip_address',
-            // 'mac_address',
+             'ip_address',
+             'mac_address',
             // 'ram',
             // 'cpu_name',
-            // 'cpu_speed',
+             'cpu_speed',
             // 'cpu_chip_count',
             // 'cpu_core_count',
-            // 'cluster_name',
+             'cluster_name',
             // 'datacenter_name',
             // 'import_device_type_id',
             // 'esx_version_check',
             // 'fqdn_check',
             // 'domain_name_check',
             // 'dns_check',
-            // 'dns_servers',
+             'dns_servers',
             // 'search_suffix_check',
             // 'vswitch_forged_transmits',
             // 'promiscious_mode',

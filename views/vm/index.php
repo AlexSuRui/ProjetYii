@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = [
               //'value'=> 'vm_esx_host',
               'format' => 'raw',
               'value'=>function ($data) {
-                         return Html::a($data->vm_esx_host,"https://www.google.fr/#q=$data->vm_esx_host",['target'=>'_blank']);
+                         return Html::a($data->vm_esx_host,"http://mri.systems.uk.hsbc/inventory/FindServer.asp?SrchStr=$data->vm_esx_host",['target'=>'_blank']);
                      },
                'filter' =>yii\helpers\ArrayHelper::map(\app\models\vm::find()->groupBy('vm_esx_host')->asArray()->all(),'vm_esx_host','vm_esx_host'),
             ],
@@ -69,8 +69,8 @@ $this->params['breadcrumbs'][] = [
             'vm_state',
             'vm_ip',
             //'vm_family',
-            // 'vm_guest_full_name',
-            // 'vm_guest_id',
+            //'vm_guest_full_name',
+            //'vm_guest_id',
              'vm_memory',
             
              
@@ -89,12 +89,8 @@ $this->params['breadcrumbs'][] = [
              //'VMCountryCode',
 
             ['class' => 'yii\grid\ActionColumn',
-                                'template'=>'{view} {update} {delete}',
-                                'buttons' => [
-                                   'view' => function ($url,$model) {
-                                           return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 
-                                                   'http://localhost:8080/index.php?r=vm%2Fevolution', ['title' => Yii::t('app', 'evolution'),]);},
-                                            ],
+                                'template'=>'{view}',
+                                
             ],
         ],
     ]); ?>

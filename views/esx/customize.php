@@ -26,26 +26,26 @@ $this->title = 'Choose the columns as you want';
         ]
     ]); 
    
-    echo '<div id="div1" class="col-md-4 ">';
+    echo '<div id="div1" class="col-md-3 ">';
     //Use a loop to save the status of each swichInput
     //Afficher les columsn en divisant par 3
-    for($i=0; $i< count($champs)/3; $i++){
+    for($i=0; $i< count($champs)/4; $i++){
         echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
         // More options in the doc
-//        if($champs[$i]=='inventory_date'||$champs[$i]=='vm_name'||$champs[$i]=='vm_host_name'
-//                ||$champs[$i]=='vm_state'||$champs[$i]=='vm_ip'||$champs[$i]=='vm_memory'
-//                ||$champs[$i]=='vm_total_vcpu'||$champs[$i]=='vm_num_cpus'||$champs[$i]=='vm_esx_host'){
-//            echo SwitchInput::widget([
-//                'inlineLabel'=>false,
-//                'name'=>$champs[$i], 
-//                'value'=>true,
-//                'pluginOptions' => [
-//                    'animate' => false,
-//                    'size'=>'mini'
-//                ],
-//            ]); 
+        if($champs[$i]=='inventory_date'||$champs[$i]=='FQDN'||$champs[$i]=='connected_state'
+                ||$champs[$i]=='ip_address'||$champs[$i]=='mac_address'||$champs[$i]=='cpu_speed'
+                ||$champs[$i]=='cluster_name'||$champs[$i]=='dns_servers'){
+            echo SwitchInput::widget([
+                'inlineLabel'=>false,
+                'name'=>$champs[$i], 
+                'value'=>true,
+                'pluginOptions' => [
+                    'animate' => false,
+                    'size'=>'mini'
+                ],
+            ]); 
 //            Yii::warning($champs[i]);
-//        } else {
+        } else {
             echo SwitchInput::widget([
                 'inlineLabel'=>false,
                 'name'=>$champs[$i], 
@@ -56,26 +56,26 @@ $this->title = 'Choose the columns as you want';
                 ],
             ]); 
         }
-//    }
+    }
     echo '</div>';
-    echo '<div id="div2" class="col-md-4 ">';
-       for($i= count($champs)/3; $i<count($champs)/3*2; $i++){
+    echo '<div id="div2" class="col-md-3 ">';
+       for($i= count($champs)/4; $i<count($champs)/4*2; $i++){
         echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
         // More options in the doc
-//        if($champs[$i]=='inventory_date'||$champs[$i]=='vm_name'||$champs[$i]=='vm_host_name'
-//                ||$champs[$i]=='vm_state'||$champs[$i]=='vm_ip'||$champs[$i]=='vm_memory'
-//                ||$champs[$i]=='vm_total_vcpu'||$champs[$i]=='vm_num_cpus'||$champs[$i]=='vm_esx_host'){
-//            echo SwitchInput::widget([
-//                'inlineLabel'=>false,
-//                'name'=>$champs[$i], 
-//                'value'=>true,
-//                'pluginOptions' => [
-//                    'animate' => false,
-//                    'size'=>'mini'
-//                ],
-//            ]); 
-//            Yii::warning($champs[i]);
-//        } else {
+        if($champs[$i]=='inventory_date'||$champs[$i]=='FQDN'||$champs[$i]=='connected_state'
+                ||$champs[$i]=='ip_address'||$champs[$i]=='mac_address'||$champs[$i]=='cpu_speed'
+                ||$champs[$i]=='cluster_name'||$champs[$i]=='dns_servers'){
+            echo SwitchInput::widget([
+                'inlineLabel'=>false,
+                'name'=>$champs[$i], 
+                'value'=>true,
+                'pluginOptions' => [
+                    'animate' => false,
+                    'size'=>'mini'
+                ],
+            ]); 
+            Yii::warning($champs[i]);
+        } else {
             echo SwitchInput::widget([
                 'inlineLabel'=>false,
                 'name'=>$champs[$i], 
@@ -86,26 +86,26 @@ $this->title = 'Choose the columns as you want';
                 ],
             ]); 
         }
-//    }
+    }
     echo '</div>';
-    echo '<div id="div3" class="col-md-4 ">';
-       for($i= count($champs)/3*2; $i<count($champs); $i++){
+    echo '<div id="div3" class="col-md-3 ">';
+       for($i= count($champs)/4*2; $i<count($champs)/4*3; $i++){
         echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
         // More options in the doc
-//        if($champs[$i]=='inventory_date'||$champs[$i]=='vm_name'||$champs[$i]=='vm_host_name'
-//                ||$champs[$i]=='vm_state'||$champs[$i]=='vm_ip'||$champs[$i]=='vm_memory'
-//                ||$champs[$i]=='vm_total_vcpu'||$champs[$i]=='vm_num_cpus'||$champs[$i]=='vm_esx_host'){
-//            echo SwitchInput::widget([
-//                'inlineLabel'=>false,
-//                'name'=>$champs[$i], 
-//                'value'=>true,
-//                'pluginOptions' => [
-//                    'animate' => false,
-//                    'size'=>'mini'
-//                ],
-//            ]); 
-//            Yii::warning($champs[i]);
-//        } else {
+        if($champs[$i]=='inventory_date'||$champs[$i]=='FQDN'||$champs[$i]=='connected_state'
+                ||$champs[$i]=='ip_address'||$champs[$i]=='mac_address'||$champs[$i]=='cpu_speed'
+                ||$champs[$i]=='cluster_name'||$champs[$i]=='dns_servers'){
+            echo SwitchInput::widget([
+                'inlineLabel'=>false,
+                'name'=>$champs[$i], 
+                'value'=>true,
+                'pluginOptions' => [
+                    'animate' => false,
+                    'size'=>'mini'
+                ],
+            ]); 
+            Yii::warning($champs[i]);
+        } else {
             echo SwitchInput::widget([
                 'inlineLabel'=>false,
                 'name'=>$champs[$i], 
@@ -116,7 +116,37 @@ $this->title = 'Choose the columns as you want';
                 ],
             ]); 
         }
-//    }
+    }
+    echo '</div>';
+    echo '<div id="div3" class="col-md-3 ">';
+       for($i= count($champs)/4*3; $i<count($champs); $i++){
+        echo '<label class="control-label" style="align-content:center">'.$champs[$i].'</label>';
+        // More options in the doc
+        if($champs[$i]=='inventory_date'||$champs[$i]=='FQDN'||$champs[$i]=='connected_state'
+                ||$champs[$i]=='ip_address'||$champs[$i]=='mac_address'||$champs[$i]=='cpu_speed'
+                ||$champs[$i]=='cluster_name'||$champs[$i]=='dns_servers'){
+            echo SwitchInput::widget([
+                'inlineLabel'=>false,
+                'name'=>$champs[$i], 
+                'value'=>true,
+                'pluginOptions' => [
+                    'animate' => false,
+                    'size'=>'mini'
+                ],
+            ]); 
+            Yii::warning($champs[i]);
+        } else {
+            echo SwitchInput::widget([
+                'inlineLabel'=>false,
+                'name'=>$champs[$i], 
+                'value'=>FALSE,
+                'pluginOptions' => [
+                    'animate' => false,
+                    'size'=>'mini'
+                ],
+            ]); 
+        }
+    }
     echo '</div>';
 //    past way to display the champs
 //    foreach ($champs as $champ){

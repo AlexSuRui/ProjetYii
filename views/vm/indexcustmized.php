@@ -69,7 +69,7 @@ $this->params['breadcrumbs'][] = [
                 'columns' => array_merge(
                                 array_merge([['class' => 'yii\grid\SerialColumn']],
                                     array_merge([['attribute'=>  'vm_esx_host','format' => 'raw','value'=>function ($data) {
-                                                                    return Html::a($data->vm_esx_host,['site/index']);
+                                                                    return Html::a($data->vm_esx_host,"http://mri.systems.uk.hsbc/inventory/FindServer.asp?SrchStr=$data->vm_esx_host",['target'=>'_blank']);
                                                                     },
                                                         ]],$result)),
                                                         [['class' => 'yii\grid\ActionColumn',

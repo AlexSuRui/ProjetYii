@@ -7,11 +7,11 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Server Inventory</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Important Announcement.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <?=\yii\helpers\Html::a('Please log in to do more', ['/site/login'], ['class'=>'btn btn-lg btn-success'])?>
     </div>
 
     <div class="body-content">

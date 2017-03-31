@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\filters\AccessControl;
 /**
  * VmController implements the CRUD actions for vm model.
  */
@@ -21,12 +22,26 @@ class VmController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index'],
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+//                        'controllers' => ['VmController'],
+                        'allow' => true,
+                        'roles' => ['@'],
+//                        'ips' => ['192.168.*'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
+            
             
          
         ];
@@ -61,12 +76,12 @@ class VmController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
         if (Yii::$app->request->isPjax) {
-            return $this->renderPartial('index', [
+            return $this->renderPartial('indexcustmized', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);
         } else {
-            return $this->render('index', [
+            return $this->render('indexcustmized', [
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
             ]);

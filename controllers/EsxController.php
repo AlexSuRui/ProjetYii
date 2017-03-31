@@ -8,6 +8,7 @@ use app\models\esxSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * EsxController implements the CRUD actions for esx model.
@@ -19,7 +20,27 @@ class EsxController extends Controller
      */
     public function behaviors()
     {
+
         return [
+             'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index','truncate'],
+                'rules' => [
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['truncate'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ]
+                ],
+//                'denyCallback' => function ($rule, $action) {
+//                    throw new \Exception('You are not allowed to access this page');
+//                 }
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -28,6 +49,7 @@ class EsxController extends Controller
             ],
         ];
     }
+    
 
     /**
      * Lists all esx models.
@@ -121,6 +143,18 @@ class EsxController extends Controller
         return $this->redirect(['index']);
     }
 
+    /**
+     * Truncate a table
+     * If delete is successful, the browser will be redirected to the 'View'page.
+     */
+    public function actionTruncate()
+    {
+        Yii::$app->db->createCommand()->truncateTable('esx')->execute();
+        
+        return $this->redirect(['/esx/index']);
+            
+    }
+    
     /**
      * Finds the esx model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
