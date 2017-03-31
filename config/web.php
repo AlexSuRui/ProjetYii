@@ -20,7 +20,6 @@ $config = [
         ],
         'authManager' =>[
             'class' => 'yii\rbac\PhpManager',
-            'defaultRoles' => ['admin'],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -51,11 +50,7 @@ $config = [
         ],
         */
     ],
-    'modules'=>[
-      'gridview' =>[
-          'class'=>'\kartik\grid\Module'
-      ]  
-    ],
+
     'params' => $params,
 ];
 

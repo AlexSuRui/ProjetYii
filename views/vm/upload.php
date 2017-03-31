@@ -3,17 +3,20 @@ use yii\widgets\ActiveForm;
 use yii\bootstrap\Html;
 $this->title = 'Upload a excel file';
 ?>
-<h2><?= Html::encode($this->title) ?></h2>
+<h1><?= Html::encode($this->title) ?></h1>
 
 <?php $form = ActiveForm::begin([
     'options' => ['enctype' => 'multipart/form-data'],
     ]); 
 ?>
-<div class="col-md-offset-5">
+<div class="alert alert-info">
+    <h4>
     <?= $form->field($model, 'file')->fileInput() ?>
-
+    </h4>
     <!--<button class="btn btn-primary">Submit</button>-->
-    <div class="form-group">
+    
+</div>
+<div class="form-group ">
     <?=    Html::submitButton('Upload', [
         'class' => 'btn btn-primary',
             'data' => [
@@ -22,5 +25,4 @@ $this->title = 'Upload a excel file';
             ],
     ])?>
     </div>
-</div>
 <?php ActiveForm::end() ?>

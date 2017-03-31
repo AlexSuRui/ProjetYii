@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "63ffdff3e4a4dacbf2cfb4bd16952551",
+    "content-hash": "ff4c14ff6d4ab5f2aeeb1db441e7c903",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -57,16 +57,16 @@
         },
         {
             "name": "bower-asset/highcharts",
-            "version": "v5.0.9",
+            "version": "v5.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/highcharts/highcharts-dist.git",
-                "reference": "37f98a7cb9e38ae17d2325eef63017a851633c42"
+                "reference": "08edd9b09ed73af0826941b322c29b89ffdb742f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/highcharts/highcharts-dist/zipball/37f98a7cb9e38ae17d2325eef63017a851633c42",
-                "reference": "37f98a7cb9e38ae17d2325eef63017a851633c42",
+                "url": "https://api.github.com/repos/highcharts/highcharts-dist/zipball/08edd9b09ed73af0826941b322c29b89ffdb742f",
+                "reference": "08edd9b09ed73af0826941b322c29b89ffdb742f",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -353,60 +353,6 @@
             "time": "2017-03-13T06:30:53+00:00"
         },
         {
-            "name": "kartik-v/yii2-date-range",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kartik-v/yii2-date-range.git",
-                "reference": "d75e44406856fc9cabc06d2b9efb98b60323c2c4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-date-range/zipball/d75e44406856fc9cabc06d2b9efb98b60323c2c4",
-                "reference": "d75e44406856fc9cabc06d2b9efb98b60323c2c4",
-                "shasum": ""
-            },
-            "require": {
-                "kartik-v/yii2-krajee-base": "*"
-            },
-            "type": "yii2-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "kartik\\daterange\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Kartik Visweswaran",
-                    "email": "kartikv2@gmail.com",
-                    "homepage": "http://www.krajee.com/"
-                }
-            ],
-            "description": "An advanced Yii 2 date range picker input for based on bootstrap-daterangepicker plugin.",
-            "homepage": "https://github.com/kartik-v/yii2-date-range",
-            "keywords": [
-                "bootstrap",
-                "bootstrap 3",
-                "date",
-                "date-range",
-                "extension",
-                "range",
-                "time",
-                "widget",
-                "yii2"
-            ],
-            "time": "2017-03-22 17:55:06"
-        },
-        {
             "name": "kartik-v/yii2-krajee-base",
             "version": "dev-master",
             "source": {
@@ -678,12 +624,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ec2697bbdd0447a1b16be8e2c25f19a405e68d0d"
+                "reference": "c72dc83fc3f1fdf09770740863d7c8be5765c7d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ec2697bbdd0447a1b16be8e2c25f19a405e68d0d",
-                "reference": "ec2697bbdd0447a1b16be8e2c25f19a405e68d0d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/c72dc83fc3f1fdf09770740863d7c8be5765c7d7",
+                "reference": "c72dc83fc3f1fdf09770740863d7c8be5765c7d7",
                 "shasum": ""
             },
             "require": {
@@ -770,7 +716,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-03-24 11:18:05"
+            "time": "2017-03-30 14:28:26"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -1066,12 +1012,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/base.git",
-                "reference": "8d5f54ce583ceaa9627c2441e20bbd4873de50cc"
+                "reference": "99142344c1c3ea147d2908473ee96bfef81a2349"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/base/zipball/8d5f54ce583ceaa9627c2441e20bbd4873de50cc",
-                "reference": "8d5f54ce583ceaa9627c2441e20bbd4873de50cc",
+                "url": "https://api.github.com/repos/Codeception/base/zipball/99142344c1c3ea147d2908473ee96bfef81a2349",
+                "reference": "99142344c1c3ea147d2908473ee96bfef81a2349",
                 "shasum": ""
             },
             "require": {
@@ -1084,6 +1030,7 @@
                 "phpunit/phpunit": ">4.8.20 <6.0",
                 "sebastian/comparator": "~1.1",
                 "sebastian/diff": "^1.4",
+                "stecman/symfony-console-completion": "^0.7.0",
                 "symfony/browser-kit": ">=2.7 <4.0",
                 "symfony/console": ">=2.7 <4.0",
                 "symfony/css-selector": ">=2.7 <4.0",
@@ -1148,7 +1095,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2017-02-04T02:16:42+00:00"
+            "time": "2017-03-25T03:34:50+00:00"
         },
         {
             "name": "codeception/specify",
@@ -1286,12 +1233,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "489dec479a089af0beaaa54b255d507ec34b21e3"
+                "reference": "0e3e900e97a6f781dedc45ca8759dd84a1f2cfc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/489dec479a089af0beaaa54b255d507ec34b21e3",
-                "reference": "489dec479a089af0beaaa54b255d507ec34b21e3",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/0e3e900e97a6f781dedc45ca8759dd84a1f2cfc1",
+                "reference": "0e3e900e97a6f781dedc45ca8759dd84a1f2cfc1",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1275,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-03-22T22:23:34+00:00"
+            "time": "2017-03-29T09:42:14+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1393,7 +1340,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1690,12 +1637,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "cb9dd0ea37df29fa3c6ae5ac26c3408a7609cb4f"
+                "reference": "785775520e2c490a79fc92c96995f018789ccb00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cb9dd0ea37df29fa3c6ae5ac26c3408a7609cb4f",
-                "reference": "cb9dd0ea37df29fa3c6ae5ac26c3408a7609cb4f",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/785775520e2c490a79fc92c96995f018789ccb00",
+                "reference": "785775520e2c490a79fc92c96995f018789ccb00",
                 "shasum": ""
             },
             "require": {
@@ -1745,7 +1692,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-07T10:28:00+00:00"
+            "time": "2017-03-31T13:20:01+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -1939,12 +1886,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c4ebb68af6e68179eb2381603ad35032622894cf"
+                "reference": "165488f3b35a3b2e160f8a8768b2e10ed82b5c22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c4ebb68af6e68179eb2381603ad35032622894cf",
-                "reference": "c4ebb68af6e68179eb2381603ad35032622894cf",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/165488f3b35a3b2e160f8a8768b2e10ed82b5c22",
+                "reference": "165488f3b35a3b2e160f8a8768b2e10ed82b5c22",
                 "shasum": ""
             },
             "require": {
@@ -2013,7 +1960,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-20T17:41:26+00:00"
+            "time": "2017-03-31T13:50:34+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -2685,6 +2632,51 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
+            "name": "stecman/symfony-console-completion",
+            "version": "0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stecman/symfony-console-completion.git",
+                "reference": "5461d43e53092b3d3b9dbd9d999f2054730f4bbb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stecman/symfony-console-completion/zipball/5461d43e53092b3d3b9dbd9d999f2054730f4bbb",
+                "reference": "5461d43e53092b3d3b9dbd9d999f2054730f4bbb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/console": "~2.3 || ~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stecman\\Component\\Symfony\\Console\\BashCompletion\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Holdaway",
+                    "email": "stephen@stecman.co.nz"
+                }
+            ],
+            "description": "Automatic BASH completion for Symfony Console Component based applications.",
+            "time": "2016-02-24T05:08:54+00:00"
+        },
+        {
             "name": "symfony/browser-kit",
             "version": "dev-master",
             "source": {
@@ -2747,12 +2739,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "49219ff04e2df75b7118b17fcc71123679d91d65"
+                "reference": "1030e321ade9b3cd5b9294262a27656ff06896c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/49219ff04e2df75b7118b17fcc71123679d91d65",
-                "reference": "49219ff04e2df75b7118b17fcc71123679d91d65",
+                "url": "https://api.github.com/repos/symfony/console/zipball/1030e321ade9b3cd5b9294262a27656ff06896c4",
+                "reference": "1030e321ade9b3cd5b9294262a27656ff06896c4",
                 "shasum": ""
             },
             "require": {
@@ -2807,7 +2799,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-23T18:14:29+00:00"
+            "time": "2017-03-27T14:51:00+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -3035,7 +3027,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-21T21:44:47+00:00"
+            "time": "2017-03-21 21:44:47"
         },
         {
             "name": "symfony/finder",
@@ -3084,7 +3076,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-20T10:06:58+00:00"
+            "time": "2017-03-20 10:06:58"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3198,7 +3190,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-22T19:08:11+00:00"
+            "time": "2017-03-22 19:08:11"
         },
         {
             "name": "webmozart/assert",
@@ -3256,12 +3248,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "6065b9784078881ff7b0301004342d210fec77b0"
+                "reference": "ab01ecb8abceff4ce1922de42373b4a91bbe3e4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/6065b9784078881ff7b0301004342d210fec77b0",
-                "reference": "6065b9784078881ff7b0301004342d210fec77b0",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/ab01ecb8abceff4ce1922de42373b4a91bbe3e4f",
+                "reference": "ab01ecb8abceff4ce1922de42373b4a91bbe3e4f",
                 "shasum": ""
             },
             "require": {
@@ -3295,7 +3287,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2017-03-21T14:37:54+00:00"
+            "time": "2017-03-30T19:22:56+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",

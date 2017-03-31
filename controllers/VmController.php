@@ -24,7 +24,7 @@ class VmController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index'],
+                'only' => ['index','upload','truncate'],
                 'rules' => [
                     [
                         'actions' => ['index'],
@@ -32,7 +32,11 @@ class VmController extends Controller
                         'allow' => true,
                         'roles' => ['@'],
 //                        'ips' => ['192.168.*'],
-                    ],
+                    ],[
+                        'actions' => ['upload','truncate'],
+                        'allow'=> true,
+                        'roles' => ['admin'],
+                    ]
                 ],
             ],
             'verbs' => [

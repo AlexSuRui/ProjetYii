@@ -12,6 +12,9 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'authManager' =>[
+            'class' => 'yii\rbac\PhpManager',
+        ],
         'log' => [
             'targets' => [
                 [
@@ -21,11 +24,6 @@ $config = [
             ],
         ],
         'db' => $db,
-    ],
-    'modules'=>[
-      'gridview' =>[
-          'class'=>'\kartik\grid\Module'
-      ]  
     ],
     'params' => $params,
     /*

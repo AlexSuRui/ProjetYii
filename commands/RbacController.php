@@ -1,26 +1,31 @@
 <?php
-    use yii\console\Controllerl;
+    namespace app\commands;
+
+    use Yii;
+    use yii\console\Controller;
     
     class RbacController extends Controller
     {
         public function actionInit()
         {
             $auth = Yii::$app->authManager;
-
-            $rule = new \app\rbac\AuthorRule;
-            $auth->add($rule);
             
             // add "uploadData" access
-            $uploadData = $auth->createPermission('truncate');
+            $uploadData = $auth->createPermission('upload');
             $uploadData->description = 'upload a data file';
-            $uploadData->ruleName = $rule->name;
             $auth->add($uploadData);
+            
+             // add "turncate" access
+            $truncateData = $auth->createPermission('truncate');
+            $truncateData->description = 'truncate all data ';
+            $auth->add($truncateData);
 
             // add "admin" role and add "uploadData" access
             $admin = $auth->createRole('admin');
             $auth->add($admin);
             $auth->addChild($admin, $uploadData);
-            
+            $auth->addChild($admin, $truncateData);
+
             $auth->assign($admin, 100);
         }
     }
