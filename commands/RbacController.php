@@ -22,11 +22,14 @@
 
             // add "admin" role and add "uploadData" access
             $admin = $auth->createRole('admin');
+            $spadmin = $auth->createRole('super admin');
             $auth->add($admin);
+            $auth->add($spadmin);
             $auth->addChild($admin, $uploadData);
             $auth->addChild($admin, $truncateData);
 
             $auth->assign($admin, 100);
+            $auth->assign($spadmin, 102);
         }
     }
 ?>

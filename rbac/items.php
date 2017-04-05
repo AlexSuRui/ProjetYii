@@ -15,4 +15,11 @@ return [
             'truncate',
         ],
     ],
+    'super admin' => [
+        'type' => 1,
+        'children' => [
+            'upload',
+            'truncate',
+        ],
+    ],
 ];

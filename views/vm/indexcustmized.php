@@ -41,9 +41,6 @@ $this->params['breadcrumbs'][] = [
                            'value' => $result,
                        ]));
                     }
-
-        
-                Yii::info($result);
         ?>
         <div style="margin-bottom: 2%">
             <?php // Html::a('Create Sales', ['create'], ['class' => 'btn btn-success',]) ?>
