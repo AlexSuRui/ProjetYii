@@ -22,4 +22,7 @@ return [
             'truncate',
         ],
     ],
+    '/admin/assignment/index' => [
+        'type' => 2,
+    ],
 ];

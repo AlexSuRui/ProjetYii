@@ -1,5 +1,4 @@
 <?php
-
 namespace app\controllers;
 
 use Yii;
@@ -11,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use yii\filters\AccessControl;
+require dirname(dirname(__FILE__)).'/excel/PHPExcel.php';
 
 /**
  * VmController implements the CRUD actions for vm model.
