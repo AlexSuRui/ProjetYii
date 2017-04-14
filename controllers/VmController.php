@@ -229,6 +229,7 @@ class VmController extends Controller {
             for ($row = 2; $row <= $highestRow; $row++) {
                 $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColomn . $row, NULL, TRUE, FALSE);
                 $vm = new vm();
+                print_r($vm->attributes());
                 $vm->createVM($rowData[0]);
             }
             return true;

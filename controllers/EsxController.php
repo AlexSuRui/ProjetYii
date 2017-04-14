@@ -5,10 +5,13 @@ namespace app\controllers;
 use Yii;
 use app\models\esx;
 use app\models\esxSearch;
+use app\models\UploadForm;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 use yii\filters\AccessControl;
+require dirname(dirname(__FILE__)).'/excel/PHPExcel.php';
 
 /**
  * EsxController implements the CRUD actions for esx model.
@@ -220,10 +223,16 @@ class EsxController extends Controller
                 $highestColomn = $sheet->getHighestColumn();
                 //Use a loop to load data
                 for ($row = 2; $row<=$highestRow; $row++)
-                        {
-                            $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
-                            $vm = new vm();
-                            $vm->createVM($rowData[0]);
+                {
+                    $cell = $sheet->getCell('A'.$row);
+                    $invDate = $cell->getValue();
+                    if(\PHPExcel_Shared_Date::isDateTime($cell)){
+                        $invDate = date($format="Y-m-d H:i:s", \PHPExcel_Shared_Date::ExcelToPHP($invDate));
+                    }
+                    $rowData = $sheet->rangeToArray('A'.$row.':'.$highestColomn.$row,NULL,TRUE,FALSE); 
+                    $rowData[0][0]=$invDate;
+                    $esx = new esx();
+                    $esx->createESX($rowData[0]);
                         }
                 return true;   
                 }

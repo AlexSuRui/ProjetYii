@@ -8,7 +8,10 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Esxes';
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = [
+    'label'=>$this->title,
+    'options'=>['class'=>'breadcrumbs'],
+]
 ?>
 <div class="esx-index">
 
@@ -19,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Delete all data',['truncate'],['class' => 'btn btn-danger', 
             'data'=>['confirm'=>'Warning: this will delete all the recordings','method'=>'post',]])?>
         <?= Html::a('Create Esx', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('update data from excel file', ['upload'], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Custmoize your search',['customize'],['class' => 'btn btn-warning'])?>
     </p>
 
@@ -28,11 +32,28 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'inventory_date',
+            [
+                'attribute'=>'inventory_date',
+                'value'=>'inventory_date',
+                'format'=>'raw',
+                'filter' => \yii\jui\DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute'=>'inventory_date',
+                    'dateFormat' => 'yyyy-MM-dd'
+                    ])
+            ],
             // 'region',
 //            'vcenter_server',
 //            'UUID',
-//            'device_name',
+            [
+              'attribute'=>  'device_name',
+
+              'format' => 'raw',
+              'value'=>function ($data) {
+                         return Html::a($data->device_name,"http://mri.systems.uk.hsbc/inventory/FindServer.asp?SrchStr=$data->device_name",['target'=>'_blank']);
+                     },
+               'filter' =>yii\helpers\ArrayHelper::map(\app\models\vm::find()->groupBy('device_name')->asArray()->all(),'device_name','device_name'),
+            ],
              'FQDN',
              'connected_state',
             // 'device_manufacturer',
