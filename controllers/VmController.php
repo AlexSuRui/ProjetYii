@@ -228,9 +228,10 @@ class VmController extends Controller {
             //Use a loop to load data
             for ($row = 2; $row <= $highestRow; $row++) {
                 $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColomn . $row, NULL, TRUE, FALSE);
-                $vm = new vm();
-                print_r($vm->attributes());
-                $vm->createVM($rowData[0]);
+//                $vm = new vm();
+//                print_r($vm->attributes());
+//                $vm->createVM($rowData[0]);
+                Yii::$app->db->createCommand()->insert('vm', ['inventory_date'=>$rowData[0][0], 'region'=>$rowData[0][1], 'vcenter_server'=>$rowData[0][2], 'vm_name'=>$rowData[0][3], 'vm_host_name'=>$rowData[0][4], 'vm_state'=>$rowData[0][5], 'vm_ip'=>$rowData[0][6], 'vm_family'=>$rowData[0][7], 'vm_guest_full_name'=>$rowData[0][8], 'vm_guest_id'=>$rowData[0][9], 'vm_memory'=>$rowData[0][10], 'vm_esx_host'=>$rowData[0][11], 'vm_total_vcpu'=>$rowData[0][12], 'vm_num_cpus'=>$rowData[0][13], 'vm_num_cores_per_cpu'=>$rowData[0][14], 'vm_hardware_version'=>$rowData[0][15], 'vm_is_template'=>$rowData[0][16], 'vm_tools_status'=>$rowData[0][17], 'vm_tools_version'=>$rowData[0][18], 'vm_tools_version_status'=>$rowData[0][19], 'vm_name_check'=>$rowData[0][20], 'vm_provisionedspaceGB'=>$rowData[0][21], 'vm_usedspaceGB'=>$rowData[0][22], 'vm_compliance_check'=>$rowData[0][23], 'VMCountryCode'=>$rowData[0][24]])->execute();
             }
             return true;
         }
@@ -238,7 +239,7 @@ class VmController extends Controller {
 
     /**
      * Upload a excel file
-     * @return null
+     * @return null'
      */
     public function actionUpload() {
         $model = new UploadForm();
