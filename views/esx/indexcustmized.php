@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     $result = array();
                     $cookies1 = Yii::$app->request->cookies;
                     if (($cookie = $cookies1->get('result')) !== null){
-                        $result = $cookie->value;
+                        $result = json_decode($cookie->value,true);
                     } else {
                         $model = new esx();
                         $champs = $model->attributes();
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                        $cookies =  Yii::$app->response->cookies;
                        $cookies -> add(new \yii\web\Cookie([
                            'name'=>'result',
-                           'value' => $result,
+                           'value' => json_encode($result),
                        ]));
                     }
 //                    $cache->set('result',$results);
