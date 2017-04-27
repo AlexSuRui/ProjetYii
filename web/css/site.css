@@ -8,6 +8,8 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+    background-color: #f2f1f1;
+    
 }
 
 .wrap > .container {
@@ -21,16 +23,59 @@ body {
     padding-top: 20px;
 }
 
-.jumbotron {
+.head-home {
     text-align: center;
-    background-color: transparent;
+    background-color: #f2f1f1;
+    
+}
+.bloc-right {
+    min-width: 400px;
+    max-width: 540px;
+    position: absolute;
+    left: 50%;
+    margin-left: -482px;
+    top: 20px;
+    background: #fff;
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+
+.mid-home {
+    background-image: url(../images/hsbc.jpg);
+    background-size: cover;
+    height: 400px;
+    position: relative;
+    z-index: 2;
+    padding: -15px;
+    /*background-color: red;*/
 }
 
+.block-home {
+    
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 0.5em;
+    
+}
+
+.bar{
+    border-style: solid;
+    border-color: red;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.foot-home-title{
+    
+    background-color: #f2f1f1;
+}
+
+.foot-home-title > h4{
+    padding: 5px;
+    color: red;
+}
+
+.center{
+    text-align: center;
+}
 .not-set {
     color: #c55;
     font-style: italic;
@@ -128,6 +173,7 @@ a.desc:after {
     border-color: #e44444;
 }
 
+
 .nav > li > a, #nav{
     display: inline-block;
     vertical-align: middle;
@@ -159,4 +205,13 @@ a.desc:after {
 }
 #carousel-text{
     color:#fff;
+}
+
+.footer-content p, p> a{
+    font-style: normal;
+    font-size: 1em;
+    font-family: Arial,Verdqnq,sans-serif;
+    line-height: normal;
+    color: #666666;
+    
 }
