@@ -31,10 +31,19 @@ class LoginForm extends Model
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password', 'validatePasswordLdap'],
         ];
     }
 
+    public function validatePasswordLdap($attribute, $params)
+{
+    if (!$this->hasErrors()) {
+        $user = $this->getUserLdap();
+        if (!$user || !Yii::$app->ldap->authenticate($this->username,$this->password)) {
+            $this->addError($attribute, 'Incorrect username or passwords.');
+        }
+    }
+}
     /**
      * Validates the password.
      * This method serves as the inline validation for password.
@@ -57,10 +66,10 @@ class LoginForm extends Model
      * Logs in a user using the provided username and password.
      * @return bool whether the user is logged in successfully
      */
-    public function login()
+    public function loginLdap()
     {
         if ($this->validate()) {
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600*24*30 : 0);
+            return Yii::$app->user->login($this->getUserLdap(), $this->rememberMe ? 3600*24*30 : 0);
         }
         return false;
     }
@@ -70,6 +79,14 @@ class LoginForm extends Model
      *
      * @return User|null
      */
+    public function getUserLdap()
+{
+    if ($this->_user === false) {           
+        $this->_user = User::findIdentity($this->username);
+    }
+
+    return $this->_user;
+}
     public function getUser()
     {
         if ($this->_user === false) {
